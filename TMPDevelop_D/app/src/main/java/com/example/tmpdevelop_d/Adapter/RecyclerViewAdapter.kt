@@ -28,7 +28,7 @@ class RecyclerViewAdapter (private val userList: ArrayList<Users>) : RecyclerVie
         holder.username.text = user.username
         holder.userID.text = user.userID
         Glide.with(holder.itemView.context)
-            .load(user.imageUrl ?: "https://example.com/placeholder.jpg")
+            .load(user.imageUrl?: "https://example.com/placeholder.jpg")
             .into(holder.imageUrl)
     }
 
