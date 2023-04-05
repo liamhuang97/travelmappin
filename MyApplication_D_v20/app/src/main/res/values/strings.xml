@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">My Application_D_v2.0</string>
-    <string name="userphoto">user</string>
-    <string name="plusbtn">plus</string>
-    <string name="text_teams">團隊</string>
-    <string name="text_route">行程</string>
-    <string name="text_friends">好友</string>
-</resources>
