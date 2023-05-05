@@ -1,4 +1,4 @@
-package com.example.tmpdevelop_d.Fragment
+package com.example.tmpdevelop_d.fragment
 
 import android.content.ContentValues.TAG
 import android.os.Bundle
@@ -10,11 +10,12 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.example.tmpdevelop_d.Adapter.GroupAdapter
-import com.example.tmpdevelop_d.Dialog.CreateGroupDialog
+import com.example.tmpdevelop_d.adapter.GroupAdapter
+import com.example.tmpdevelop_d.dialog.CreateGroupDialog
 import com.example.tmpdevelop_d.R
-import com.example.tmpdevelop_d.Users.Group
+import com.example.tmpdevelop_d.users.Group
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -31,7 +32,7 @@ class FirstFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // 綁定佈局
+        // 設定佈局
         val view = inflater.inflate(R.layout.fragment_first, container, false)
 
         // 綁定 RecyclerView
@@ -41,12 +42,6 @@ class FirstFragment : Fragment() {
         adapter = GroupAdapter(groups)
         recyclerView.adapter = adapter
 
-        // Access a Cloud Firestore instance from your Activity
-        val db = Firebase.firestore
-
-        // Get the collection reference
-        val groupsRef = db.collection("Groups")
-
         // 綁定 FloatingActionButton
         fab = view.findViewById(R.id.fab)
         fab.setOnClickListener {
@@ -54,32 +49,39 @@ class FirstFragment : Fragment() {
             showCreateGroupDialog()
         }
 
-        // Bind SwipeRefreshLayout
+        // 綁定 SwipeRefreshLayout
         swipeRefreshLayout = view.findViewById(R.id.swipe_refresh_layout)
 
-        // Set up SwipeRefreshLayout
+        // 設定 SwipeRefreshLayout 的刷新監聽器
         swipeRefreshLayout.setOnRefreshListener {
             fetchGroupListAndUpdateRecyclerView {
                 swipeRefreshLayout.isRefreshing = false
             }
         }
 
+        // 獲取群組列表並更新 RecyclerView
         fetchGroupListAndUpdateRecyclerView()
 
         return view
     }
 
-    // Retrieve data from Firestore and populate ArrayList
+    // 從 Firestore 中獲取群組列表並更新 RecyclerView
     private fun fetchGroupListAndUpdateRecyclerView(onComplete: (() -> Unit)? = null) {
         val db = Firebase.firestore
         val groupsRef = db.collection("Groups")
+        // 獲取當前用戶 ID
+        val currentUserId = FirebaseAuth.getInstance().currentUser?.uid
 
         groupsRef.get().addOnSuccessListener { result ->
             groups.clear()
             for (document in result) {
                 val group = document.toObject(Group::class.java)
-                groups.add(group)
+                // 如果當前用戶是群組成員，則添加到群組列表中
+                if (group.memberIds.contains(currentUserId)) {
+                    groups.add(group)
+                }
             }
+            // 通知 Adapter 數據已更改
             adapter.notifyDataSetChanged()
             onComplete?.invoke()
         }.addOnFailureListener { exception ->

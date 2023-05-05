@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.viewpager.widget.ViewPager
-import com.example.tmpdevelop_d.Adapter.ViewPagerAdapter
+import com.example.tmpdevelop_d.adapter.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayout
 
 

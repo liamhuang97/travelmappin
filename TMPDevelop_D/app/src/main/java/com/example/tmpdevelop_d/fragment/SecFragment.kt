@@ -1,4 +1,4 @@
-package com.example.tmpdevelop_d.Fragment
+package com.example.tmpdevelop_d.fragment
 
 import android.content.ContentValues.TAG
 import android.os.Bundle
@@ -9,9 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.tmpdevelop_d.Adapter.RecyclerViewAdapter
+import com.example.tmpdevelop_d.adapter.RecyclerViewAdapter
 import com.example.tmpdevelop_d.R
-import com.example.tmpdevelop_d.Users.Users
+import com.example.tmpdevelop_d.users.Users
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 

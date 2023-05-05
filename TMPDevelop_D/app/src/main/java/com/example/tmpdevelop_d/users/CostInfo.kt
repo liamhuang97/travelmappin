@@ -1,4 +1,4 @@
-package com.example.tmpdevelop_d.Users
+package com.example.tmpdevelop_d.users
 
 import com.google.android.gms.maps.model.LatLng
 import com.google.firebase.auth.UserInfo

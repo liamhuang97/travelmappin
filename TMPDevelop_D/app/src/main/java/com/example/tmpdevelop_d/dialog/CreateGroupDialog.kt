@@ -1,4 +1,4 @@
-package com.example.tmpdevelop_d.Dialog
+package com.example.tmpdevelop_d.dialog
 
 import android.app.Activity.RESULT_OK
 import android.content.ContentValues.TAG
@@ -16,8 +16,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.tmpdevelop_d.R
-import com.example.tmpdevelop_d.Users.Group
-import com.example.tmpdevelop_d.Users.Users
+import com.example.tmpdevelop_d.users.Group
+import com.example.tmpdevelop_d.users.Users
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage

@@ -1,4 +1,4 @@
-package com.example.tmpdevelop_d.Adapter
+package com.example.tmpdevelop_d.adapter
 
 
 import android.view.LayoutInflater
@@ -9,12 +9,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.tmpdevelop_d.R
-import com.example.tmpdevelop_d.Users.Group
+import com.example.tmpdevelop_d.users.Group
 
 
 class GroupAdapter(private val groups: List<Group>) : RecyclerView.Adapter<GroupAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
         val groupNameTextView: TextView = itemView.findViewById(R.id.group_name)
         val photoUrlImageView: ImageView = itemView.findViewById(R.id.group_image)
         val memberCountTextView: TextView = itemView.findViewById(R.id.group_count)

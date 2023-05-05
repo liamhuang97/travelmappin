@@ -1,4 +1,4 @@
-package com.example.tmpdevelop_d.Adapter
+package com.example.tmpdevelop_d.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.tmpdevelop_d.R
-import com.example.tmpdevelop_d.Users.Users
+import com.example.tmpdevelop_d.users.Users
 
 class RecyclerViewAdapter (private val userList: ArrayList<Users>) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 

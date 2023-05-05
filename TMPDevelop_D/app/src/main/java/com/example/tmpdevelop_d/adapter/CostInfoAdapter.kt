@@ -1,4 +1,4 @@
-package com.example.tmpdevelop_d.Adapter
+package com.example.tmpdevelop_d.adapter
 
 import android.view.LayoutInflater
 import android.view.View

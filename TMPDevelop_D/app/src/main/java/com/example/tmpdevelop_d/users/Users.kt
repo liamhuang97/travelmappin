@@ -1,4 +1,4 @@
-package com.example.tmpdevelop_d.Users
+package com.example.tmpdevelop_d.users
 
 data class Users(
     val userID: String = "",

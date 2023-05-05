@@ -1,12 +1,11 @@
-package com.example.tmpdevelop_d.Adapter
+package com.example.tmpdevelop_d.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentPagerAdapter
 
-import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.tmpdevelop_d.Fragment.FirstFragment
-import com.example.tmpdevelop_d.Fragment.SecFragment
-import com.example.tmpdevelop_d.Fragment.ThirdFragment
+import com.example.tmpdevelop_d.fragment.FirstFragment
+import com.example.tmpdevelop_d.fragment.SecFragment
+import com.example.tmpdevelop_d.fragment.ThirdFragment
 
 
 
